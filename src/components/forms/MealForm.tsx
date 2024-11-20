@@ -20,6 +20,7 @@ interface MealFormProps {
   onFoodSearch: (value: string) => void
   onFoodSelect: (foods: string[], field: number) => void
   getMealRecommendation: (type: MealType) => void
+  mealTypes: MealType[]
 }
 
 const MealForm: React.FC<MealFormProps> = ({
@@ -28,6 +29,7 @@ const MealForm: React.FC<MealFormProps> = ({
   onFoodSearch,
   onFoodSelect,
   getMealRecommendation,
+  mealTypes,
 }) => {
   const meals = Form.useWatch('meals', form)
 
@@ -63,7 +65,7 @@ const MealForm: React.FC<MealFormProps> = ({
                       {...restField}
                     >
                       <Select
-                        options={['早餐', '午餐', '晚餐', '加餐'].map(type => ({ 
+                        options={mealTypes.map(type => ({ 
                           label: type, 
                           value: type,
                         }))}

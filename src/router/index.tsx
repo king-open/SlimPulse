@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
       },
       { 
         path: '/community', 
-        element: <UnderConstruction />,
+        element: <Community />,
         errorElement: <ErrorFallback />,
       },
       { 

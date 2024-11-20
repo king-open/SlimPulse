@@ -57,4 +57,10 @@ export interface CheckInStats {
     in: number
     out: number
   }>
+}
+
+export interface ExerciseIntensity {
+  light: string
+  moderate: string
+  vigorous: string
 } 

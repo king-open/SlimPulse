@@ -11,7 +11,7 @@ import {
   CalendarOutlined,
   HeartOutlined,
 } from '@ant-design/icons'
-import { ExerciseType } from '../../types'
+import { ExerciseType, ExerciseIntensity } from '../../types'
 import type { FormInstance } from 'antd/es/form'
 
 const { Text } = Typography
@@ -19,16 +19,16 @@ const { Text } = Typography
 interface ExerciseFormProps {
   form: FormInstance
   intensityOptions: Array<{
-    value: string
+    value: keyof ExerciseIntensity
     label: string
     color: string
     heartRate: string
     description: string
   }>
   exerciseTypes: ExerciseType[]
-  onExerciseChange: (type: string, duration: number, intensity: string, field: number) => void
+  onExerciseChange: (type: string, duration: number, intensity: keyof ExerciseIntensity, field: number) => void
   getExerciseRecommendation: (type: ExerciseType) => number
-  calculateExerciseCalories: (type: string, duration: number, intensity: string) => number
+  calculateExerciseCalories: (type: string, duration: number, intensity: keyof ExerciseIntensity) => number
 }
 
 const ExerciseForm: React.FC<ExerciseFormProps> = ({

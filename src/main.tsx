@@ -9,12 +9,15 @@ import { router } from './router'
 import 'virtual:uno.css'
 import './styles/index.css'
 
-async function startApp() {
-  if (import.meta.env.DEV) {
-    const { initMocks } = await import('./mocks/config')
-    await initMocks()
+// 使用立即执行的异步函数来初始化
+const init = async () => {
+  // 在开发环境下启动 MSW
+  if (process.env.NODE_ENV === 'development') {
+    const { startWorker } = await import('./mocks/browser')
+    await startWorker()
   }
 
+  // 渲染应用
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <Provider store={store}>
@@ -34,4 +37,4 @@ async function startApp() {
   )
 }
 
-startApp()
+init().catch(console.error)

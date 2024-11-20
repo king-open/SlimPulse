@@ -1,0 +1,47 @@
+/* 移动端适配样式 */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: fixed !important;
+    height: 100vh;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .ant-layout-sider-collapsed {
+    transform: translateX(0);
+  }
+
+  .ant-layout-content {
+    margin-left: 0 !important;
+    padding: 1rem !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: block !important;
+  }
+
+  .ant-card {
+    margin-bottom: 1rem;
+  }
+
+  .ant-form-item {
+    margin-bottom: 1rem;
+  }
+
+  .ant-input,
+  .ant-select {
+    font-size: 16px !important; /* 防止iOS缩放 */
+  }
+}
+
+/* 平板适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-hidden {
+    display: none !important;
+  }
+} 

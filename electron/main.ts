@@ -13,8 +13,10 @@ function createWindow() {
           "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' https://fonts.gstatic.com",
-          "img-src 'self' data: https:",
-          "connect-src 'self' http://localhost:3000 https://api.example.com",
+          "img-src 'self' data: https: http: blob:",
+          "connect-src 'self' http://localhost:* https://api.dicebear.com https://picsum.photos",
+          "media-src 'self' https: http: blob:",
+          "object-src 'none'",
         ].join('; ')
       }
     })
@@ -39,7 +41,22 @@ function createWindow() {
     win.loadFile(path.join(__dirname, '../dist/index.html'))
   }
 
-  win.webContents.setWindowOpenHandler(() => {
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    const allowedDomains = [
+      'api.dicebear.com',
+      'picsum.photos',
+      'localhost',
+    ]
+    
+    try {
+      const urlObj = new URL(url)
+      if (allowedDomains.some(domain => urlObj.hostname.includes(domain))) {
+        require('electron').shell.openExternal(url)
+      }
+    } catch (e) {
+      console.error('Invalid URL:', e)
+    }
+    
     return { action: 'deny' }
   })
 }
@@ -48,12 +65,27 @@ app.whenReady().then(() => {
   app.on('web-contents-created', (event, contents) => {
     contents.on('will-navigate', (event, navigationUrl) => {
       const parsedUrl = new URL(navigationUrl)
-      if (parsedUrl.origin !== 'http://localhost:3000') {
+      if (!parsedUrl.origin.includes('localhost')) {
         event.preventDefault()
       }
     })
 
-    contents.setWindowOpenHandler(() => {
+    contents.setWindowOpenHandler(({ url }) => {
+      const allowedDomains = [
+        'api.dicebear.com',
+        'picsum.photos',
+        'localhost',
+      ]
+      
+      try {
+        const urlObj = new URL(url)
+        if (allowedDomains.some(domain => urlObj.hostname.includes(domain))) {
+          require('electron').shell.openExternal(url)
+        }
+      } catch (e) {
+        console.error('Invalid URL:', e)
+      }
+      
       return { action: 'deny' }
     })
   })
