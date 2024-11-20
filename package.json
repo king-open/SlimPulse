@@ -1,0 +1,92 @@
+{
+  "name": "fitness-check",
+  "private": true,
+  "version": "0.0.1",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite --mode development",
+    "test": "vite --mode test",
+    "build": "vite build --mode production && electron-builder",
+    "preview": "vite preview",
+    "electron:dev": "vite --mode development",
+    "electron:test": "vite --mode test",
+    "electron:build": "vite build --mode production && electron-builder",
+    "msw:init": "msw init public/ --save"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.1",
+    "@ant-design/pro-components": "^2.6.49",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^2.2.1",
+    "antd": "^5.15.1",
+    "axios": "^1.6.7",
+    "canvas-confetti": "^1.9.3",
+    "dayjs": "^1.11.10",
+    "echarts": "^5.5.0",
+    "framer-motion": "^11.11.17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.30",
+    "@types/canvas-confetti": "^1.6.4",
+    "@types/node": "^20.11.25",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@types/xlsx": "^0.0.36",
+    "@unocss/preset-attributify": "0.58.0",
+    "@unocss/preset-icons": "0.58.0",
+    "@unocss/preset-uno": "0.58.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^29.1.1",
+    "electron-builder": "^24.12.0",
+    "msw": "^2.6.5",
+    "typescript": "^5.4.2",
+    "unocss": "0.58.0",
+    "vite": "^5.1.5",
+    "vite-plugin-electron": "^0.28.2"
+  },
+  "build": {
+    "appId": "com.fitness.check",
+    "productName": "Fitness Check",
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist-electron",
+      "dist"
+    ],
+    "mac": {
+      "artifactName": "${productName}_${version}.${ext}",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
