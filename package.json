@@ -1,5 +1,5 @@
 {
-  "name": "fitness-check",
+  "name": "SlimPulse",
   "private": true,
   "version": "0.0.1",
   "main": "dist-electron/main.js",

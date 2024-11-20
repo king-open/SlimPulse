@@ -1,50 +1,112 @@
-# React + TypeScript + Vite
+<div align="center">
+  <h1>🏃‍♂️ SlimPulse</h1>
+  <p><em>一个专注于减肥打卡的健康生活应用</em></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/个人开发-独立完成-brightgreen" alt="个人开发" />
+    <img src="https://img.shields.io/badge/技术栈-React%20%7C%20TypeScript%20%7C%20Electron-blue" alt="技术栈" />
+    <img src="https://img.shields.io/badge/状态-开发中-orange" alt="开发状态" />
+  </p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 项目简介
 
-Currently, two official plugins are available:
+Fitness Check 是一个由个人独立开发的减肥打卡应用，专注于帮助用户科学减肥、记录体重变化、管理饮食运动。通过数据可视化和社区激励，让减肥之路不再孤单。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✨ 核心特性
 
-## Expanding the ESLint configuration
+- 📊 **体重追踪**：记录每日体重、体脂变化
+- 🍽️ **饮食管理**：卡路里计算、营养分析
+- 💪 **运动规划**：个性化运动建议、消耗统计
+- 📈 **数据分析**：体重趋势、目标达成度
+- 🏆 **成就系统**：激励持续打卡
+- 👥 **社区互动**：分享经验、互相鼓励
+- 📱 **跨平台支持**：支持桌面端和移动端
+- 🌙 **深色模式**：护眼体验
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 🛠️ 技术栈
 
-- Configure the top-level `parserOptions` property like this:
+- **前端框架**：React + TypeScript
+- **状态管理**：Redux Toolkit
+- **UI 组件**：Ant Design
+- **动画效果**：Framer Motion
+- **桌面端**：Electron
+- **构建工具**：Vite
+- **样式方案**：TailwindCSS + UnoCSS
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 功能特点
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 减肥数据记录
+- 体重、体脂等身体数据追踪
+- 饮食记录和卡路里计算
+- 运动记录和消耗统计
+- 身材照片记录
+- 心情和感受记录
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 数据分析
+- 体重变化趋势图
+- 目标完成度分析
+- BMI 和体脂率分析
+- 卡路里收支分析
+- 数据导出功能
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 社交功能
+- 减肥打卡动态
+- 进步对比分享
+- 经验交流互动
+- 小组减肥挑战
+- 成就展示
+
+### 智能推荐
+- 个性化运动计划
+- 健康食谱推荐
+- 营养搭配建议
+- 减肥知识推送
+
+## 📸 界面预览
+
+[这里放几张应用截图]
+
+## 🎯 开发计划
+
+- [x] 基础打卡功能
+- [x] 数据可视化
+- [x] 社区基础功能
+- [ ] 智能推荐系统
+- [ ] 移动端适配
+- [ ] 离线支持
+- [x] 成就系统
+- [ ] 数据导出
+- [ ] 更多功能
+- [ ] 个人中心
+
+## 🤝 参与贡献
+
+欢迎提出建议和反馈：
+
+1. Fork 本仓库
+2. 创建新的分支
+3. 提交你的更改
+4. 发起 Pull Request
+
+## 📄 开源协议
+
+本项目采用 [MIT](LICENSE) 协议。
+
+## 👨‍💻 关于作者
+
+本项目由个人独立开发，如果你觉得这个项目对你有帮助，欢迎：
+
+- ⭐ Star 这个项目
+- 🐛 提交 Issue 或 PR
+- 📢 分享给更多的人
+
+## 📞 联系方式
+
+- GitHub: [https://github.com/king-open]
+
+---
+
+<div align="center">
+  <strong>科学减肥，让生活更健康</strong>
+</div>
